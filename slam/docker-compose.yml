@@ -1,0 +1,9 @@
+version: "3.1"
+services:
+    slam:
+        image: nimashoghi/arm32v7-ubuntu-xenial-orb-slam2-app:with-module-timing
+        command: "slam_app /root/ORBvoc.txt MH01 both /dataset/euroc_mono.yaml /dataset/euroc_stereo.yaml /dataset/cam0/data /dataset/cam1/data /dataset/timestamps.txt"
+        privileged: true
+        volumes:
+            - "./output/:/output/"
+            - "./mav0/:/dataset/"
